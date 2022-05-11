@@ -8,6 +8,13 @@ pipeline {
     }
 
     stages {
+        stage("Ennable webhook") {
+            steps {
+                script {
+                    properties([pipelineTriggers([githubPush()])])
+                }
+            }
+        }
         
         stage('pullscm') {
             steps {
